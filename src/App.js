@@ -4,7 +4,7 @@ import './App.css';
 
 const App = () => {
   const [state, setState] = useState({
-    email: "",
+    username: "",
     password: "",
     isLoggedIn: false
   });
@@ -23,7 +23,7 @@ const App = () => {
     event.preventDefault();
     try {
       const response = await axios.post("", {
-        email: state.email,
+        username: state.username,
         password: state.password,
       });
       console.log(response);
@@ -38,7 +38,7 @@ const App = () => {
     event.preventDefault();
     try {
       const response = await axios.post("", {
-        email: state.email,
+        username: state.username,
         password: state.password
       });
       localStorage.token = response.data.token;
@@ -50,7 +50,7 @@ const App = () => {
 
   const handleLogOut = () => {
     setState({
-      email: "",
+      username: "",
       password: "",
       isLoggedIn: false
     });
