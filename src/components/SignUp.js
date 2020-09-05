@@ -18,6 +18,7 @@ function SignUp(props) {
                     </label>
                 </div>
                 <input type="submit" value="Submit" onClick={handleSignUp} />
+                <p>Already have an account? Log in <a href="#">here.</a></p>
             </form>
         </div>
     );
