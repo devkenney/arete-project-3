@@ -7,8 +7,8 @@ function SignUp(props) {
 
             <form>
                 <div>
-                    <label htmlFor="username">USERNAME</label>
-                    <input type="text" name="username" onChange={props.handleInPut} />
+                    <label htmlFor="email">EMAIL</label>
+                    <input type="text" name="email" onChange={props.handleInPut} />
                 </div>
                 
                 <div>
