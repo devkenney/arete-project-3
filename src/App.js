@@ -3,8 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 
 import Homepage from './components/Homepage.js';
 import Index from './components/Index.js';
+import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
 import Show from './components/Show.js';
+import SignUp from './components/SignUp.js';
+
 
 import './App.css';
 
@@ -25,6 +28,7 @@ const App = () => {
     }
   }, [isLoggedIn]);
 
+  const handleSignUp = async (event) => {}
   const handleLogIn = async (event) => {}
 
   const handleLogOut = () => {
@@ -40,29 +44,52 @@ const App = () => {
     setState({ ...state, [event.target.name]: event.target.value })
   }
 
-
-return (
-  <div>
-    <div className="body">
-      <Switch>
-       
-        <Route
-          path="/login"
-          render={(props) => {
-            return (
-              <LogIn/>
-            );
-          }}
-        />
-        <Route
-          path="/"
-          render={() => {
-            return <Index/>;
-          }}
-        />
-      </Switch>
+  return (
+    <div>
+      <div className="body">
+        <Switch>  
+          <Route
+            path="/signup"
+            render={() => {
+              return (
+                <SignUp />
+              );
+            }}
+          />
+          <Route
+            path="/homepage"
+            render={() => {
+              return (
+                <Homepage/>
+              );
+            }}
+          />         
+          <Route
+            path="/memorial"
+            render={() => {
+              return (
+                <Memorial/>
+              );
+            }}
+          />       
+          <Route
+            path="/login"
+            render={() => {
+              return (
+                <LogIn/>
+              );
+            }}
+          />
+          <Route
+            path="/"
+            render={() => {
+              return <Index/>;
+            }}
+          />
+        
+        </Switch>
+      </div>
     </div>
-  </div>
-);
-        }
+  );
+}
 export default App;

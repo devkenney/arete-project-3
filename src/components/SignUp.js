@@ -17,7 +17,7 @@ function SignUp(props) {
                         <input type="text" name="password" onChange={props.handleInPut} />
                     </label>
                 </div>
-                <input type="submit" value="Submit" onClick={handleSignUp} />
+                <input type="submit" value="Submit" />
                 <p>Already have an account? Log in <a href="#">here.</a></p>
             </form>
         </div>
