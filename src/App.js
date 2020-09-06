@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
+
 import Homepage from './components/Homepage.js';
 import Index from './components/Index.js';
+import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
-import Memorial from './components.Memorial.js';
 import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
+
+
 import './App.css';
 
 const App = () => {
@@ -26,34 +28,8 @@ const App = () => {
     }
   }, [isLoggedIn]);
 
-  const handleSignUp = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:3001/users/signup", {
-        username: state.username,
-        password: state.password,
-      });
-      console.log(response);
-      localStorage.token = response.data.token;
-      setIsLoggedIn(true);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const handleLogIn = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post("", {
-        username: state.username,
-        password: state.password
-      });
-      localStorage.token = response.data.token;
-      setIsLoggedIn(true);
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const handleSignUp = async (event) => {}
+  const handleLogIn = async (event) => {}
 
   const handleLogOut = () => {
     setState({
@@ -68,7 +44,52 @@ const App = () => {
     setState({ ...state, [event.target.name]: event.target.value })
   }
 
+  return (
+    <div>
+      <div className="body">
+        <Switch>  
+          <Route
+            path="/signup"
+            render={() => {
+              return (
+                <SignUp />
+              );
+            }}
+          />
+          <Route
+            path="/homepage"
+            render={() => {
+              return (
+                <Homepage/>
+              );
+            }}
+          />         
+          <Route
+            path="/memorial"
+            render={() => {
+              return (
+                <Memorial/>
+              );
+            }}
+          />       
+          <Route
+            path="/login"
+            render={() => {
+              return (
+                <LogIn/>
+              );
+            }}
+          />
+          <Route
+            path="/"
+            render={() => {
+              return <Index/>;
+            }}
+          />
+        
+        </Switch>
+      </div>
+    </div>
+  );
 }
-
-
 export default App;

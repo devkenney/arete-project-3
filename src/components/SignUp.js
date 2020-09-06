@@ -7,8 +7,8 @@ function SignUp(props) {
 
             <form>
                 <div>
-                    <label htmlFor="username">USERNAME</label>
-                    <input type="text" name="username" onChange={props.handleInPut} />
+                    <label htmlFor="email">EMAIL</label>
+                    <input type="text" name="email" onChange={props.handleInPut} />
                 </div>
                 
                 <div>
@@ -17,7 +17,7 @@ function SignUp(props) {
                         <input type="text" name="password" onChange={props.handleInPut} />
                     </label>
                 </div>
-                <input type="submit" value="Submit" onClick={handleSignUp} />
+                <input type="submit" value="Submit" />
                 <p>Already have an account? Log in <a href="#">here.</a></p>
             </form>
         </div>
