@@ -57,7 +57,7 @@ const App = () => {
             }}
           />
           <Route
-            path="/homepage"
+            path="/"
             render={() => {
               return (
                 <Homepage/>
