@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-
+import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import Homepage from './components/Homepage.js';
+import Index from './components/Index.js';
+import LogIn from './components/LogIn.js';
+import Memorial from './components.Memorial.js';
+import Show from './components/Show.js';
+import SignUp from './components/SignUp.js';
 import './App.css';
 
 const App = () => {
   const [state, setState] = useState({
-    email: "",
+    username: "",
     password: "",
     isLoggedIn: false
   });
@@ -23,7 +30,7 @@ const App = () => {
     event.preventDefault();
     try {
       const response = await axios.post("http://localhost:3001/users/signup", {
-        email: state.email,
+        username: state.username,
         password: state.password,
       });
       console.log(response);
@@ -38,7 +45,7 @@ const App = () => {
     event.preventDefault();
     try {
       const response = await axios.post("", {
-        email: state.email,
+        username: state.username,
         password: state.password
       });
       localStorage.token = response.data.token;
