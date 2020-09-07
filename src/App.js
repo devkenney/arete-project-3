@@ -56,14 +56,7 @@ const App = () => {
               );
             }}
           />
-          <Route
-            path="/"
-            render={() => {
-              return (
-                <Homepage/>
-              );
-            }}
-          />         
+                 
           <Route
             path="/memorial"
             render={() => {
@@ -86,6 +79,15 @@ const App = () => {
               return <Index/>;
             }}
           />
+
+          <Route
+            path="/"
+            render={() => {
+              return (
+                <Homepage/>
+              );
+            }}
+          />  
         
         </Switch>
       </div>
