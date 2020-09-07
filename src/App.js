@@ -42,7 +42,19 @@ const App = () => {
     console.log(error);
   }
   }
-  const handleLogIn = async (event) => {}
+  const handleLogIn = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3001/users/login", {
+        username: state.username,
+        password: state.password,
+      });
+      localStorage.token = response.data.token;
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLogOut = () => {
     setState({
@@ -86,7 +98,11 @@ const App = () => {
             path="/login"
             render={() => {
               return (
-                <LogIn/>
+                <LogIn
+                  isLoggedIn={isLoggedIn}
+                  handleInput={handleInput}
+                  handleLogIn={handleLogIn}
+                />
               );
             }}
           />
