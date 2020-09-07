@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
+import axios from 'axios';
+import 'bootswatch/dist/sketchy/bootstrap.min.css';
 import Homepage from './components/Homepage.js';
 import Index from './components/Index.js';
 import Memorial from './components/Memorial.js';
@@ -28,7 +29,19 @@ const App = () => {
     }
   }, [isLoggedIn]);
 
-  const handleSignUp = async (event) => {}
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try {
+    const response = await axios.post('http://localhost:3001/users/signup', {
+      username: state.username,
+      password: state.password
+    });
+    localStorage.token = (await response).data.token;
+    setIsLoggedIn(true);
+  } catch (error) {
+    console.log(error);
+  }
+  }
   const handleLogIn = async (event) => {}
 
   const handleLogOut = () => {
@@ -47,12 +60,16 @@ const App = () => {
   return (
     <div>
       <div className="body">
-        <Switch>  
+        <Switch>
           <Route
             path="/signup"
             render={() => {
               return (
-                <SignUp />
+                <SignUp 
+                  isLoggedIn={isLoggedIn}
+                  handleInput={handleInput}
+                  handleSignUp={handleSignUp}
+                />
               );
             }}
           />

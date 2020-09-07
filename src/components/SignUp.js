@@ -1,26 +1,27 @@
 import React from "react";
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 function SignUp(props) {
     return (
-        <div>
+        <Container>
             <h1>Create Your Account</h1>
 
-            <form>
-                <div>
-                    <label htmlFor="email">EMAIL</label>
-                    <input type="text" name="email" onChange={props.handleInPut} />
-                </div>
+            <Form>
+                <Form.Group controlId="formUsername">
+                    <Form.Label htmlFor="username">USERNAME</Form.Label>
+                    <Form.Control type="text" name="username" onChange={props.handleInput} />
+                </Form.Group>
                 
-                <div>
-                    <label>
-                        <label htmlFor="password">PASSWORD</label>
-                        <input type="text" name="password" onChange={props.handleInPut} />
-                    </label>
-                </div>
-                <input type="submit" value="Submit" />
-                <p>Already have an account? Log in <a href="#">here.</a></p>
-            </form>
-        </div>
+                <Form.Group controlId="formPassword">
+                    <Form.Label htmlFor="password">PASSWORD</Form.Label>
+                    <Form.Control type="password" name="password" onChange={props.handleInput} />
+                </Form.Group>
+                <Button variant="primary" type="submit" onClick={props.handleSignUp}/>
+            </Form>
+            <p>Already have an account? Log in <a href="#">here.</a></p>
+        </Container>
     );
 }
 
