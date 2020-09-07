@@ -8,6 +8,7 @@ import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
 import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
+import NavbarComponent from './components/Navbar.js';
 
 
 import './App.css';
@@ -71,6 +72,7 @@ const App = () => {
 
   return (
     <div>
+    <NavbarComponent />
       <div className="body">
         <Switch>
           <Route

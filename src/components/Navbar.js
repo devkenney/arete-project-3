@@ -1,7 +1,8 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
-function Navbar(props) {
+function NavbarComponent(props) {
     let navItems = [
         <Nav.Item key={1}>
             <Nav.Link href="/">Home</Nav.Link>
@@ -22,7 +23,7 @@ function Navbar(props) {
     } else {
         navItems.push(
             <Nav.Item key={5}>
-                <Nav.Link href="/Sign Up">Sign Up</a>
+                <Nav.Link href="/Sign Up">Sign Up</Nav.Link>
             </Nav.Item>
         );
         navItems.push(
@@ -46,4 +47,4 @@ function Navbar(props) {
 
 }
 
-export default Navbar;
+export default NavbarComponent;
