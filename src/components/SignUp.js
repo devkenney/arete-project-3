@@ -18,9 +18,9 @@ function SignUp(props) {
                     <Form.Label htmlFor="password">PASSWORD</Form.Label>
                     <Form.Control type="password" name="password" onChange={props.handleInput} />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={props.handleSignUp}/>
+                <Button variant="primary" type="submit" onClick={props.handleSignUp}>Sign Up!</Button>
             </Form>
-            <p>Already have an account? Log in <a href="#">here.</a></p>
+            <p>Already have an account? Log in <a href="/login">here.</a></p>
         </Container>
     );
 }
