@@ -36,7 +36,7 @@ const App = () => {
       username: state.username,
       password: state.password
     });
-    localStorage.token = (await response).data.token;
+    localStorage.token = await response.data.token;
     setIsLoggedIn(true);
   } catch (error) {
     console.log(error);
@@ -49,7 +49,7 @@ const App = () => {
         username: state.username,
         password: state.password,
       });
-      localStorage.token = response.data.token;
+      localStorage.token = await response.data.token;
       setIsLoggedIn(true);
     } catch (error) {
       console.log(error);
