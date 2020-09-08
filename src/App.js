@@ -10,6 +10,7 @@ import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
 import NavbarComponent from './components/Navbar.js';
 import Footer from './components/Footer/Footer.js';
+import Container from 'react-bootstrap/Container'
 
 import './App.css';
 
@@ -76,6 +77,7 @@ const App = () => {
 
   return (
     <div>
+    <Container>
       <NavbarComponent 
         handleLogOut={handleLogOut}
         isLoggedIn={isLoggedIn}
@@ -133,7 +135,8 @@ const App = () => {
         
         </Switch>
       </div>
-      <Footer/>
+    </Container>
+    <Footer/>
     </div>
   );
 }
