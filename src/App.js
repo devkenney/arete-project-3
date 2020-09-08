@@ -56,7 +56,6 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-    console.log("IsLoggedIn: ", isLoggedIn);
   };
 
   const handleLogOut = () => {
@@ -70,7 +69,6 @@ const App = () => {
 
   const handleInput = (event) => {
     setState({ ...state, [event.target.name]: event.target.value })
-    console.log(state)
   }
 
   return (
