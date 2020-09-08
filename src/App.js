@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import 'bootswatch/dist/sketchy/bootstrap.min.css';
 import Homepage from './components/Homepage.js';
@@ -10,10 +10,11 @@ import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
 import NavbarComponent from './components/Navbar.js';
 
-
 import './App.css';
 
 const App = () => {
+  const history = useHistory(); //for redirect after login
+
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -53,6 +54,7 @@ const App = () => {
       });
       localStorage.token = await response.data.token;
       setIsLoggedIn(true);
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
@@ -73,9 +75,9 @@ const App = () => {
 
   return (
     <div>
-    <NavbarComponent 
-      handleLogOut={handleLogOut}
-      isLoggedIn={isLoggedIn}
+      <NavbarComponent 
+        handleLogOut={handleLogOut}
+        isLoggedIn={isLoggedIn}
       />
       <div className="body">
         <Switch>
