@@ -14,16 +14,18 @@ function NavbarComponent(props) {
             <Nav.Link href="/comics">Comics</Nav.Link>
         </Nav.Item>
     ];
+    console.log(navItems);
+    console.log(props.isLoggedIn)
     if (props.isLoggedIn) {
         navItems.push(
             <Nav.Item>
-                <Nav.Link href="/logout">Log Out</Nav.Link>
+                <Nav.Link href="/logout" onClick={props.handleLogOut}>Log Out</Nav.Link>
             </Nav.Item>
         )
     } else {
         navItems.push(
             <Nav.Item key={5}>
-                <Nav.Link href="/Sign Up">Sign Up</Nav.Link>
+                <Nav.Link href="/signup">Sign Up</Nav.Link>
             </Nav.Item>
         );
         navItems.push(

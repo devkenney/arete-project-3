@@ -33,16 +33,17 @@ const App = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-    const response = await axios.post('http://localhost:3001/users/signup', {
-      username: state.username,
-      password: state.password
-    });
-    localStorage.token = await response.data.token;
-    setIsLoggedIn(true);
-  } catch (error) {
-    console.log(error);
+      const response = await axios.post('http://localhost:3001/users/signup', {
+        username: state.username,
+        password: state.password
+      });
+      localStorage.token = await response.data.token;
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.log(error);
+    }
   }
-  }
+
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
@@ -55,6 +56,7 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
+    console.log("IsLoggedIn: ", isLoggedIn);
   };
 
   const handleLogOut = () => {
@@ -68,11 +70,15 @@ const App = () => {
 
   const handleInput = (event) => {
     setState({ ...state, [event.target.name]: event.target.value })
+    console.log(state)
   }
 
   return (
     <div>
-    <NavbarComponent />
+    <NavbarComponent 
+      handleLogOut={handleLogOut}
+      isLoggedIn={isLoggedIn}
+      />
       <div className="body">
         <Switch>
           <Route
