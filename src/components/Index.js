@@ -8,7 +8,7 @@ function Index(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:3001/marvel/comics/?page=${page}`);
+            const response = await axios.get((process.env.API_URL || 'http://localhost:3001') + `/marvel/comics/?page=${page}`);
             setComics(response.data.data.results);
         }
         fetchData();
