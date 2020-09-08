@@ -118,7 +118,7 @@ const App = () => {
           <Route
             path="/comics"
             render={() => {
-              return <Index/>;
+              return <Index />;
             }}
           />
 
