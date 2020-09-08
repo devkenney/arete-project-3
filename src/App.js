@@ -9,6 +9,7 @@ import LogIn from './components/LogIn.js';
 import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
 import NavbarComponent from './components/Navbar.js';
+import Footer from './components/Footer/Footer.js';
 
 import './App.css';
 
@@ -132,6 +133,7 @@ const App = () => {
         
         </Switch>
       </div>
+      <Footer/>
     </div>
   );
 }
