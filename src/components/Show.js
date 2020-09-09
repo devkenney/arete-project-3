@@ -22,7 +22,6 @@ function Show(props) {
             <Media.Body>
                 <h1>{comics.title}</h1>
                 <p>{comics.description}</p>
-                <p>{comics.characters?.name}</p>
             </Media.Body>
         </Media>
 
