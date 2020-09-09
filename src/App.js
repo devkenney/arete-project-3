@@ -119,6 +119,11 @@ const App = () => {
             }}
           />
           <Route
+          path={`/comics/:id`}
+          component={Show}
+           />
+           
+          <Route
             path="/comics"
             render={() => {
               return <Index />;
@@ -133,14 +138,7 @@ const App = () => {
               );
             }}
           />  
-          <Route
-          path="/comics/:id"
-          render={() => {
-            return (
-              <Show />
-            )
-          }}
-           />
+          
         
         </Switch>
       </div>

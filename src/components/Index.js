@@ -4,7 +4,7 @@ import ComicShow from "./ComicShow";
 
 function Index(props) {
     const [comics, setComics] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page] = useState(1);
 
     useEffect(() => {
         async function fetchData() {
