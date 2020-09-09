@@ -128,7 +128,9 @@ const App = () => {
             path="/"
             render={() => {
               return (
-                <Homepage/>
+                <Homepage
+                  isLoggedIn={isLoggedIn}
+                />
               );
             }}
           />  
