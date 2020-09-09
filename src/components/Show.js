@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Media from 'react-bootstrap/Media'
 
 function Show(props) {
     const id = props.match.params.id;
     const [comics, setComics] = useState({});
-   
+
     useEffect(() => {
         async function fetchID() {
             console.log('UseEffect running')
@@ -13,33 +13,23 @@ function Show(props) {
             console.log(response)
             setComics(response.data.data.results[0]);
         } fetchID()
-    },[])
+    }, [])
 
-    // const showComics = this.props.comics.map((comic, i) => {
-    //     return (
-    //         <div key={comic.id}>
-    //             <h1>{comic.title}</h1>
-    //         </div>
-    //     )
-    // })
-    // const { thumbnail } = comics
-    // console.log(comics.thumbnail.path)
-    // console.log(JSON.parse(comics.thumbnail))
-    // console.log(JSON.parse(comics.thumbnail))
     return (
 
-                <div>
-                    <h1>{id}</h1>
-                    <h1>{comics.title}</h1>
-                    {/* <img src={`${JSON.parse(comics.thumbnail.path)}/standard_fantastic.${JSON.parse(comics.thumbnail.extension)}`} /> */}
-                    <p>{comics.description}</p>
-                    <p>{comics.issn}</p>
-  
-                </div>
+        <Media>
+            <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
+            <Media.Body>
+                <h1>{comics.title}</h1>
+                <p>{comics.description}</p>
+                <p>{comics.characters?.name}</p>
+            </Media.Body>
+        </Media>
 
-                
 
-        
-        )
-    }
-    export default Show;
+
+
+
+    )
+}
+export default Show;
