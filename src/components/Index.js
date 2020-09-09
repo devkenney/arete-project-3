@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ComicShow from "./ComicShow";
-require('dotenv').config();
 
 function Index(props) {
     const [comics, setComics] = useState([]);
@@ -9,7 +8,8 @@ function Index(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get((process.env.API_URL ? process.env.API_URL : 'http://localhost:3001') + `/marvel/comics/?page=${page}`);
+
+            const response = await axios.get((process.env.API_URL || 'http://localhost:3001') + `/marvel/comics/?page=${page}`);
             setComics(response.data.data.results);
         }
         fetchData();
