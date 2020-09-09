@@ -11,6 +11,7 @@ import SignUp from './components/SignUp.js';
 import NavbarComponent from './components/Navbar.js';
 import Footer from './components/Footer/Footer.js';
 import Container from 'react-bootstrap/Container'
+import Favorites from './components/Favorites.js'
 
 import './App.css';
 
@@ -20,7 +21,6 @@ const App = () => {
   const [state, setState] = useState({
     username: "",
     password: "",
-    isLoggedIn: false
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,7 +31,7 @@ const App = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, [isLoggedIn]);
+  }, [localStorage.token]);
 
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -41,6 +41,10 @@ const App = () => {
         password: state.password
       });
       localStorage.token = await response.data.token;
+      setState({
+        username: "",
+        password: "",
+      });
       setIsLoggedIn(true);
     } catch (error) {
       console.log(error);
@@ -56,6 +60,10 @@ const App = () => {
       });
       localStorage.token = await response.data.token;
       setIsLoggedIn(true);
+      setState({
+        username: "",
+        password: "",
+      });
       history.push("/");
     } catch (error) {
       console.log(error);
@@ -96,7 +104,17 @@ const App = () => {
               );
             }}
           />
-                 
+          <Route
+            path="/favorites"
+            render={() => {
+              return (
+                <Favorites
+                  isLoggedIn={isLoggedIn}
+                />
+              )
+            }
+          }
+          />
           <Route
             path="/memorial"
             render={() => {
