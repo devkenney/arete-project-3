@@ -4,11 +4,12 @@ import ComicShow from "./ComicShow";
 
 function Index(props) {
     const [comics, setComics] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page] = useState(1);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get(`http://localhost:3001/marvel/comics/?page=${page}`);
+
+            const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + `/marvel/comics/`);
             setComics(response.data.data.results);
         }
         fetchData();

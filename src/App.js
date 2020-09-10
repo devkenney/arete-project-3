@@ -12,6 +12,7 @@ import NavbarComponent from './components/Navbar.js';
 import Footer from './components/Footer/Footer.js';
 import Container from 'react-bootstrap/Container'
 import Favorites from './components/Favorites.js'
+import ComicShow from './components/ComicShow.js';
 
 import './App.css';
 
@@ -136,6 +137,11 @@ const App = () => {
             }}
           />
           <Route
+            path={`/comics/:id`}
+            component={Show}
+           />
+           
+          <Route
             path="/comics"
             render={() => {
               return <Index />;
@@ -146,10 +152,13 @@ const App = () => {
             path="/"
             render={() => {
               return (
-                <Homepage/>
+                <Homepage
+                  isLoggedIn={isLoggedIn}
+                />
               );
             }}
           />  
+          
         
         </Switch>
       </div>
