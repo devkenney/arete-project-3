@@ -32,16 +32,41 @@ function Show(props) {
         } fetchID()
     }, [])
 
-    return (
+    const createTitle = () => {
+        return {__html: comics.title}
+    }
+    const createDescription = () => {
+        return {__html: comics.description}
+    }
 
-        <Media>
-            <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
-            <Media.Body>
-                <h1>{comics.title}</h1>
-                <p>{comics.description}</p>
+    const [favorites, updateFavs] = useState([]);
+    useEffect(() => {
+    async function fetchFavorites() {
+        const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites/?token=' + localStorage.token);
+        updateFavs(response.data);
+        }
+    fetchFavorites();
+    console.log("blablafavorites: ", favorites);
+    },[]);
+
+    const formButton = () => {
+        if(localStorage.token) {
+            return (
                 <Form>
                     <Button value="submit" onClick={newFav}>Add to Favorites</Button>
                 </Form>
+            );
+        }
+    }
+    
+
+    return (
+        <Media>
+            <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
+            <Media.Body>
+                <h1 dangerouslySetInnerHTML={createTitle()}></h1>
+                <p dangerouslySetInnerHTML={createDescription()}></p>
+                {formButton()}
             </Media.Body>
         </Media>
     )

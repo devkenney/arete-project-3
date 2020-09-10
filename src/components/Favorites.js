@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useHistory } from 'react-router-dom'
 import axios from 'axios';
@@ -12,20 +12,23 @@ export default function Favorites(props) {
   }
   
   const [favorites, updateFavs] = useState([]);
+  useEffect(() => {
   async function fetchFavorites() {
-    const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites', {token: localStorage.token});
-    updateFavs(response);
+    const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites/?token=' + localStorage.token);
+    updateFavs(response.data);
     }
   fetchFavorites();
+  console.log(favorites);
+  },[]);
   return (
     <Container>
       <CardColumns>
       {favorites.map((element) => {
         return (
           <Card>
-            <Card.Img variant="top" src={`${element.path}/standard_fantastic.${element.extension}`} />
+            <Card.Img variant="top" src={`${element.thumbnail}/standard_fantastic.${element.extension}`} />
             <Card.Body>
-              <Card.Title><a href={`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/comics/${element.id}`}>{element.title}</a></Card.Title>
+              <Card.Title><a href={`/comics/${element.id}`}>{element.title}</a></Card.Title>
             </Card.Body>
           </Card>
         )
