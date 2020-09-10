@@ -39,15 +39,23 @@ function Show(props) {
         return {__html: comics.description}
     }
 
+    const formButton = () => {
+        if(localStorage.token) {
+            return (
+                <Form>
+                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
+                </Form>
+            );
+         }
+    }
+
     return (
         <Media>
             <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
             <Media.Body>
                 <h1 dangerouslySetInnerHTML={createTitle()}></h1>
                 <p dangerouslySetInnerHTML={createDescription()}></p>
-                <Form>
-                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
-                </Form>
+                {formButton()}
             </Media.Body>
         </Media>
     )
