@@ -119,8 +119,8 @@ const App = () => {
             }}
           />
           <Route
-          path={`/comics/:id`}
-          component={Show}
+            path={`/comics/:id`}
+            component={Show}
            />
            
           <Route
