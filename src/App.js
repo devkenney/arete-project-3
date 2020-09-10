@@ -139,6 +139,7 @@ const App = () => {
           <Route
             path={`/comics/:id`}
             component={Show}
+            isLoggedIn={isLoggedIn}
            />
            
           <Route
