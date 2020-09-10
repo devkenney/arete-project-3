@@ -32,13 +32,19 @@ function Show(props) {
         } fetchID()
     }, [])
 
-    return (
+    const createTitle = () => {
+        return {__html: comics.title}
+    }
+    const createDescription = () => {
+        return {__html: comics.description}
+    }
 
+    return (
         <Media>
             <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
             <Media.Body>
-                <h1>{comics.title}</h1>
-                <p>{comics.description}</p>
+                <h1 dangerouslySetInnerHTML={createTitle()}></h1>
+                <p dangerouslySetInnerHTML={createDescription()}></p>
                 <Form>
                     <Button value="submit" onClick={newFav}>Add to Favorites</Button>
                 </Form>
