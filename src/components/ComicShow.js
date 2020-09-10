@@ -9,7 +9,7 @@ function ComicShow(props) {
         <Media>
             <img src={`${thumbnail.path}/standard_fantastic.${thumbnail.extension}`} />
             <Media.Body>
-                <a href={`/comics/${id}`}><h5>{title}</h5></a>
+                <a href={`/comics/${id}`}><h4>{title}</h4></a>
             </Media.Body>
         </Media>
     )
