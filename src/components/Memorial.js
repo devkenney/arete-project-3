@@ -9,7 +9,7 @@ function Memorial(props) {
   return (
     <Container>
       <Jumbotron>
-        <h1>Marvel Memorial</h1>
+        <h1 style={{textAlign: 'center'}}>Marvel Memorial</h1>
         <Image src="https://newsd.in/wp-content/uploads/2018/11/stan-lee-marvel-comics-comicbookcom-1070074-1280x0.jpeg" fluid />
         <h3>The MARVELous Creator, Stan Lee</h3>
 
