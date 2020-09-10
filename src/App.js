@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'bootswatch/dist/sketchy/bootstrap.min.css';
 import Homepage from './components/Homepage.js';
 import Index from './components/Index.js';
-import Memorial from './components/Memorial/Memorial.js';
+import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
 import Show from './components/Show.js';
 import SignUp from './components/SignUp.js';
