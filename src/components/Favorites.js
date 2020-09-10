@@ -8,14 +8,12 @@ import CardColumns from 'react-bootstrap/CardColumns';
 export default function Favorites(props) {
   const history = useHistory();  
   if (!localStorage.token) {
-    console.log(props.isLoggedIn);
     history.push('/signup');
-  } else {
-    console.log(props.isLoggedIn);
   }
+  
   const [favorites, updateFavs] = useState([]);
   async function fetchFavorites() {
-    const response = await axios.get((process.env.API_URL || 'http://localhost:3001') + '/favorites', {token: localStorage.token});
+    const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites', {token: localStorage.token});
     updateFavs(response);
     }
   fetchFavorites();
@@ -27,7 +25,7 @@ export default function Favorites(props) {
           <Card>
             <Card.Img variant="top" src={`${element.path}/standard_fantastic.${element.extension}`} />
             <Card.Body>
-              <Card.Title><a href={`${process.env.API_URL || 'http://localhost:3001'}/comics/${element.id}`}>{element.title}</a></Card.Title>
+              <Card.Title><a href={`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/comics/${element.id}`}>{element.title}</a></Card.Title>
             </Card.Body>
           </Card>
         )
