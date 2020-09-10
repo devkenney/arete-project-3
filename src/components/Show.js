@@ -39,15 +39,34 @@ function Show(props) {
         return {__html: comics.description}
     }
 
+    const [favorites, updateFavs] = useState([]);
+    useEffect(() => {
+    async function fetchFavorites() {
+        const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites/?token=' + localStorage.token);
+        updateFavs(response.data);
+        }
+    fetchFavorites();
+    console.log("blablafavorites: ", favorites);
+    },[]);
+
+    const formButton = () => {
+        if(localStorage.token) {
+            return (
+                <Form>
+                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
+                </Form>
+            );
+        }
+    }
+    
+
     return (
         <Media>
             <img src={`${comics.thumbnail?.path}/portrait_uncanny.${comics.thumbnail?.extension}`} />
             <Media.Body>
                 <h1 dangerouslySetInnerHTML={createTitle()}></h1>
                 <p dangerouslySetInnerHTML={createDescription()}></p>
-                <Form>
-                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
-                </Form>
+                {formButton()}
             </Media.Body>
         </Media>
     )
