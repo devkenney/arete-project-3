@@ -10,25 +10,30 @@ function NavbarComponent(props) {
         <Nav.Item key={2}>
             <Nav.Link href="/memorial">Memorial</Nav.Link>
         </Nav.Item>,
-        <Nav.Item>
+        <Nav.Item key={3}>
             <Nav.Link href="/comics">Comics</Nav.Link>
         </Nav.Item>
     ];
 
     if (props.isLoggedIn) {
         navItems.push(
-            <Nav.Item>
+            <Nav.Item key={4}>
+                <Nav.Link href="/favorites">Favorites</Nav.Link>
+            </Nav.Item>
+        );
+        navItems.push(
+            <Nav.Item key={5}>
                 <Nav.Link href="/" onClick={props.handleLogOut}>Log Out</Nav.Link>
             </Nav.Item>
         )
     } else {
         navItems.push(
-            <Nav.Item key={5}>
+            <Nav.Item key={4}>
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
             </Nav.Item>
         );
         navItems.push(
-            <Nav.Item>
+            <Nav.Item key={5}>
                 <Nav.Link href="/login">Log In</Nav.Link>
             </Nav.Item>
         );
@@ -45,7 +50,6 @@ function NavbarComponent(props) {
             </Navbar.Collapse>
         </Navbar>
     )
-
 }
 
 export default NavbarComponent;

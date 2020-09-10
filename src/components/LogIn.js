@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 function LogIn(props) {
     return (
         <Form>
+            <h1>Log In</h1>
             <Form.Group>
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" name="username" onChange={props.handleInput} />
