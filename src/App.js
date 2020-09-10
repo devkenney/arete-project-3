@@ -11,6 +11,7 @@ import SignUp from './components/SignUp.js';
 import NavbarComponent from './components/Navbar.js';
 import Footer from './components/Footer/Footer.js';
 import Container from 'react-bootstrap/Container'
+import ComicShow from './components/ComicShow.js';
 
 import './App.css';
 
@@ -118,6 +119,11 @@ const App = () => {
             }}
           />
           <Route
+          path={`/comics/:id`}
+          component={Show}
+           />
+           
+          <Route
             path="/comics"
             render={() => {
               return <Index />;
@@ -134,6 +140,7 @@ const App = () => {
               );
             }}
           />  
+          
         
         </Switch>
       </div>
