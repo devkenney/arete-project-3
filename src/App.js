@@ -109,7 +109,7 @@ const App = () => {
             render={() => {
               return (
                 <Favorites
-                  isLoggedIn={isLoggedIn}
+                isLoggedIn={isLoggedIn}
                 />
               )
             }
