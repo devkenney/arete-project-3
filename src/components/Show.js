@@ -39,15 +39,20 @@ function Show(props) {
         return {__html: comics.description}
     }
 
+    const addRemoveFavorite = () => {
+        return (
+            <Form>
+                <Button value="submit" onClick={newFav}>Add to Favorites</Button>
+            </Form>
+        )
+    }
+
     const formButton = () => {
         if(localStorage.token) {
-            return (
-                <Form>
-                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
-                </Form>
-            );
-         }
+            return addRemoveFavorite();
+        }
     }
+    
 
     return (
         <Media>
