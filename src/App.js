@@ -37,7 +37,7 @@ const App = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/users/signup', {
+      const response = await axios.post((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/signup', {
         username: state.username,
         password: state.password
       });
@@ -55,7 +55,7 @@ const App = () => {
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/users/login", {
+      const response = await axios.post((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/login', {
         username: state.username,
         password: state.password,
       });

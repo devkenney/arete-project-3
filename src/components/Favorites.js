@@ -10,6 +10,7 @@ export default function Favorites(props) {
   if (!localStorage.token) {
     history.push('/signup');
   }
+  
   const [favorites, updateFavs] = useState([]);
   useEffect(() => {
   async function fetchFavorites() {
