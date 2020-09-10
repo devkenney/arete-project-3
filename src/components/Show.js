@@ -8,7 +8,7 @@ function Show(props) {
 
     const newFav = async (event) => {
         try {
-          const response = await axios.put('http://localhost:3001/users/favorites', {
+          const response = await axios.put((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites', {
             newFav: {
                 id: id,
                 title: comics.title,
@@ -26,7 +26,7 @@ function Show(props) {
     useEffect(() => {
         async function fetchID() {
             console.log('UseEffect running')
-            const response = await axios.get(`http://localhost:3001/marvel/comics/${id}`)
+            const response = await axios.get((process.env.REACT_APP_API_URL || `http://localhost:3001`) + `/marvel/comics/${id}`)
             console.log(response)
             setComics(response.data.data.results[0]);
         } fetchID()
