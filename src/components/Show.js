@@ -62,7 +62,7 @@ function Show(props) {
 
     return (
         <Media>
-            <img src={`${comics.thumbnail?.path}/standard_fantastic.${comics.thumbnail?.extension}`} />
+            <img src={`${comics.thumbnail?.path}/portrait_uncanny.${comics.thumbnail?.extension}`} />
             <Media.Body>
                 <h1 dangerouslySetInnerHTML={createTitle()}></h1>
                 <p dangerouslySetInnerHTML={createDescription()}></p>
