@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Media from 'react-bootstrap/Media'
+import {Button, InputGroup, Form, Media} from 'react-bootstrap'
 
 function Show(props) {
     const id = props.match.params.id;
     const [comics, setComics] = useState({});
+
+    const newFav = async (event) => {
+        try {
+          const response = await axios.put('http://localhost:3001/users/favorites', {
+            newFav: {
+                id: id,
+                title: comics.title,
+                thumbnail: comics.thumbnail?.path,
+                extension: comics.thumbnail?.extension,
+            },
+            token: localStorage.token
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    
 
     useEffect(() => {
         async function fetchID() {
@@ -22,13 +39,12 @@ function Show(props) {
             <Media.Body>
                 <h1>{comics.title}</h1>
                 <p>{comics.description}</p>
+                <Form>
+                    <Button value="submit" onClick={newFav}>Add to Favorites</Button>
+                </Form>
             </Media.Body>
         </Media>
-
-
-
-
-
     )
 }
+
 export default Show;
