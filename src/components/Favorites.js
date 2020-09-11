@@ -26,10 +26,12 @@ export default function Favorites(props) {
       {favorites.map((element) => {
         return (
           <Card>
-            <Card.Img variant="top" src={`${element.thumbnail}/standard_fantastic.${element.extension}`} />
-            <Card.Body>
-              <Card.Title><a href={`/comics/${element.id}`}>{element.title}</a></Card.Title>
-            </Card.Body>
+            <a href={`/comics/${element.id}`}>
+              <Card.Img variant="top" src={`${element.thumbnail}/portrait_uncanny.${element.extension}`} />
+              <Card.Body>
+                <Card.Title>{element.title}</Card.Title>
+              </Card.Body>
+              </a>
           </Card>
         )
       })}
