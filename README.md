@@ -12,4 +12,4 @@ For styling, the site uses Bootstrap and the Sketchy theme from Bootswatch.
 ## Stretch Goals
 A future goal would be to include a search function- Marvel's API provides endpoints for character and storyline searching. 
 
-URL: https://superwiki.herokuapp.com/comics
+URL: https://superwiki.herokuapp.com
