@@ -31,7 +31,7 @@ export default function Favorites(props) {
               <Card.Body>
                 <Card.Title>{element.title}</Card.Title>
               </Card.Body>
-              </a>
+            </a>
           </Card>
         )
       })}

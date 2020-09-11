@@ -39,15 +39,6 @@ function Show(props) {
         return {__html: comics.description}
     }
 
-    const [favorites, updateFavs] = useState([]);
-    useEffect(() => {
-    async function fetchFavorites() {
-        const response = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/users/favorites/?token=' + localStorage.token);
-        updateFavs(response.data);
-        }
-    fetchFavorites();
-    console.log("blablafavorites: ", favorites);
-    },[]);
 
     const formButton = () => {
         if(localStorage.token) {
