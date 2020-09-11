@@ -1,0 +1,17 @@
+.welcome-screen {
+    background: url('https://previews.123rf.com/images/yayasyaya/yayasyaya1605/yayasyaya160500007/58039643-comic-book-page-divided-by-lines-with-speech-bubbles-rocket-hero-and-sounds-effect-retro-background-.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 150vh;
+    padding: 5%;
+}
+
+.welcome p {
+    border: 2px solid #333;
+    border-radius: 555px 25px 15px 25px/25px 5px 35px 555px;
+    background-color: #FBFBFB;
+    padding: 2%;
+    margin: 10% auto;
+    font-size: 150%;
+}
+

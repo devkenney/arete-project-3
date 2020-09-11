@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import 'bootswatch/dist/sketchy/bootstrap.min.css';
-import Homepage from './components/Homepage.js';
+import Homepage from './components/Homepage/Homepage.js';
 import Index from './components/Index.js';
 import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
