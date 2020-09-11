@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import 'bootswatch/dist/sketchy/bootstrap.min.css';
-import Homepage from './components/Homepage.js';
+import Homepage from './components/Homepage/Homepage.js';
 import Index from './components/Index.js';
 import Memorial from './components/Memorial.js';
 import LogIn from './components/LogIn.js';
@@ -12,7 +12,6 @@ import NavbarComponent from './components/Navbar.js';
 import Footer from './components/Footer/Footer.js';
 import Container from 'react-bootstrap/Container'
 import Favorites from './components/Favorites.js'
-import ComicShow from './components/ComicShow.js';
 
 import './App.css';
 
