@@ -9,13 +9,13 @@ function Memorial(props) {
   return (
     <Container>
       <Jumbotron>
-        <h1>Marvel Memorial</h1>
+        <h1 style={{textAlign: 'center'}}>Marvel Memorial</h1>
         <Image src="https://newsd.in/wp-content/uploads/2018/11/stan-lee-marvel-comics-comicbookcom-1070074-1280x0.jpeg" fluid />
         <h3>The MARVELous Creator, Stan Lee</h3>
 
         <Row>
-          <Col><Image src="https://cdn.mos.cms.futurecdn.net/9HEqv9pcccpwSYcxcrHgPe-970-80.jpg.webp" fluid />The Black Panther, Chadwick Boseman</Col>
-          <Col><Image src="https://cdn.mos.cms.futurecdn.net/9HEqv9pcccpwSYcxcrHgPe-970-80.jpg.webp" fluid /></Col>
+          <Col><Image src="https://static01.nyt.com/images/2018/02/07/arts/07black-panther1/merlin_133187918_5fbcffdc-abaa-4e42-a938-24b9217b675c-jumbo.jpg?quality=90&auto=webp" fluid />The Black Panther, Chadwick Boseman</Col>
+          <Col><Image src="https://static01.nyt.com/images/2018/02/07/arts/07black-panther1/merlin_133187918_5fbcffdc-abaa-4e42-a938-24b9217b675c-jumbo.jpg?quality=90&auto=webp" fluid /></Col>
         </Row>
         <Row>
           <Col><Image src="https://img3.looper.com/img/gallery/marvel-actors-you-may-not-know-are-dead/cliff-robertson-uncle-ben-1532700967.jpg" fluid /></Col>
