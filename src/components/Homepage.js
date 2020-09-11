@@ -39,7 +39,7 @@ function Homepage(props) {
           Introducing the SuperWiki! The ultimate wiki for the best superheroes
           ever created. We have every Marvel comic known to man listed HERE.
           <br />
-          All you need to do, is sign up, browse Marvel's extensive comic
+          All you need to do is sign up, browse Marvel's extensive comic
           catalog, and add them to your favorites!
         </p>
 
