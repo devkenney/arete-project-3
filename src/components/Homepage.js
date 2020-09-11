@@ -1,6 +1,5 @@
 import React from "react";
 import { Image } from "react-bootstrap";
-import "./css/homepage.css";
 
 const Background =
   "https://previews.123rf.com/images/yayasyaya/yayasyaya1605/yayasyaya160500007/58039643-comic-book-page-divided-by-lines-with-speech-bubbles-rocket-hero-and-sounds-effect-retro-background-.jpg";
