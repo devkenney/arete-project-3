@@ -45,6 +45,8 @@ a {
   box-shadow: 5px 3px 5px 0px rgba(209,205,209,1);
   margin: 5px 0;
   bordeR: solid 2px black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .media-body {

@@ -56,13 +56,18 @@ function Show(props) {
                     <Button value="submit" onClick={newFav}>Add to Favorites</Button>
                 </Form>
             );
+        } else {
+            return (
+                <p><a href='/signup'>Sign Up</a> or <a href='/login'>Log In</a> to add this comic to your Favorites</p>
+            )
+            
         }
     }
     
 
     return (
         <Media>
-            <img src={`${comics.thumbnail?.path}/portrait_uncanny.${comics.thumbnail?.extension}`} />
+            <img alt={comics.title} src={`${comics.thumbnail?.path}/portrait_uncanny.${comics.thumbnail?.extension}`}/>
             <Media.Body>
                 <h1 dangerouslySetInnerHTML={createTitle()}></h1>
                 <p dangerouslySetInnerHTML={createDescription()}></p>
